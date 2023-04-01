@@ -1,0 +1,19 @@
+directive @authField(requireRole: Role) on FIELD_DEFINITION
+
+enum Role {
+  ADMIN
+  REVIEWER
+  USER
+}
+
+interface ByUser {
+  _id: String!
+  fullName: String!
+}
+
+scalar SCalar
+
+input BaseInput {
+  nodeId: String!
+  profileId: String!
+}

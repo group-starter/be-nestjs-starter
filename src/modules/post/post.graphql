@@ -1,0 +1,21 @@
+type Query {
+  post(id: String!, baseInput: BaseInput!): Post
+  posts(baseInput: BaseInput!): [Post]
+}
+
+type Mutation {
+  createPost(newPost: IPost): Post
+}
+
+input IPost {
+  title: String!
+  votes: Int
+  authorId: String!
+}
+
+type Post {
+  _id: String!
+  title: String!
+  votes: Int
+  authorId: String! @authField(requireRole: ADMIN)
+}

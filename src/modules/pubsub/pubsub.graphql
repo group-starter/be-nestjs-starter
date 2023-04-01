@@ -1,0 +1,7 @@
+type Subscription {
+  connectSubscription(test: String!): SCalar
+}
+
+type Mutation {
+  testSubscription(test: String): Boolean
+}

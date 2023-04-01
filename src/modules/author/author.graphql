@@ -1,0 +1,21 @@
+type Query {
+  author(id: String!): Author
+  authors: [Author]
+}
+
+type Mutation {
+  createAuthor(newAuth: IAuthor): Author
+}
+
+input IAuthor {
+  firstName: String
+  lastName: String
+  postId: String
+}
+
+type Author {
+  _id: String!
+  firstName: String
+  lastName: String
+  posts: [Post]
+}

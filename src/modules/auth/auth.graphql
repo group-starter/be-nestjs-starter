@@ -1,0 +1,13 @@
+type Query {
+  login(argsLogin: ILogin!): LoginRespose
+  getMe: User
+}
+
+input ILogin {
+  username: String!
+  password: String!
+}
+
+type LoginRespose {
+  token: String
+}
