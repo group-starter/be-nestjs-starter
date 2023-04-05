@@ -44,6 +44,8 @@ export interface ByUser {
 export abstract class IQuery {
     abstract login(argsLogin: ILogin): Nullable<LoginRespose> | Promise<Nullable<LoginRespose>>;
 
+    abstract getMe(): Nullable<User> | Promise<Nullable<User>>;
+
     abstract author(id: string): Nullable<Author> | Promise<Nullable<Author>>;
 
     abstract authors(): Nullable<Nullable<Author>[]> | Promise<Nullable<Nullable<Author>[]>>;
@@ -51,8 +53,6 @@ export abstract class IQuery {
     abstract post(id: string, baseInput: BaseInput): Nullable<Post> | Promise<Nullable<Post>>;
 
     abstract posts(baseInput: BaseInput): Nullable<Nullable<Post>[]> | Promise<Nullable<Nullable<Post>[]>>;
-
-    abstract getMe(): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export class LoginRespose {
@@ -65,6 +65,8 @@ export abstract class IMutation {
     abstract createPost(newPost?: Nullable<IPost>): Nullable<Post> | Promise<Nullable<Post>>;
 
     abstract testSubscription(test?: Nullable<string>): Nullable<boolean> | Promise<Nullable<boolean>>;
+
+    abstract singleUpload(file: Upload): Nullable<File> | Promise<Nullable<File>>;
 }
 
 export class Author {
@@ -85,6 +87,12 @@ export abstract class ISubscription {
     abstract connectSubscription(test: string): Nullable<SCalar> | Promise<Nullable<SCalar>>;
 }
 
+export class File {
+    filename: string;
+    mimetype: string;
+    encoding: string;
+}
+
 export class User {
     _id: string;
     firstName?: Nullable<string>;
@@ -93,4 +101,5 @@ export class User {
 }
 
 export type SCalar = any;
+export type Upload = any;
 type Nullable<T> = T | null;

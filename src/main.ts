@@ -8,6 +8,7 @@ import { LoggingInterceptor } from './configs/interceptors/logging.interceptor'
 import * as basicAuth from 'express-basic-auth'
 import { NestExpressApplication } from '@nestjs/platform-express'
 import { RolesGuard } from './configs/guards/roles.guard'
+import { graphqlUploadExpress } from 'graphql-upload'
 
 async function bootstrap() {
   // mongoose
@@ -24,6 +25,8 @@ async function bootstrap() {
 
   // app
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
+
+  app.use(graphqlUploadExpress())
 
   // swagger
   const config = new DocumentBuilder()

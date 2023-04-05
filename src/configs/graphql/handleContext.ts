@@ -9,7 +9,8 @@ export const handleContext = async ({ req, extra, res: resContext }) => {
     if (
       req.body.query.includes('login(argsLogin:') ||
       req.body.query.includes('query IntrospectionQuery') ||
-      req.body.query.includes('__ApolloGetServiceDefinition__')
+      req.body.query.includes('__ApolloGetServiceDefinition__') ||
+      req.body.operationName === 'SingleUpload'
     ) {
       return {
         res: resContext,

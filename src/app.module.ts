@@ -7,6 +7,7 @@ import { AuthorModule } from '@/modules/author/author.module'
 import { PostModule } from '@/modules/post/post.module'
 import { PubSubModule } from '@/modules/pubsub/pubsub.module'
 import { AuthModule } from '@/modules/auth/auth.module'
+import { UploadModule } from '@/modules/upload/upload.module'
 
 import { GraphqlModule } from '@/configs/graphql/graphql.modules'
 import { AppMongooseModule } from '@/configs/mongoose/mongoose.module'
@@ -21,6 +22,7 @@ const imports = [
   PubSubModule,
   AuthorModule,
   PostModule,
+  UploadModule,
   ConfigModule.forRoot({
     envFilePath: ['.env.development'],
     isGlobal: true,
