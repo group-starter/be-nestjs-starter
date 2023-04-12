@@ -16,8 +16,18 @@ export class UploadService {
     await finished(out)
     const dataBuffer = fs.readFileSync(pathFile)
     const data = await pdf(dataBuffer)
+    const { text } = data
+    const arrText: [] = text.split('\n')
+    const re = new RegExp(
+      '[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]',
+      'gu',
+    )
+    const arrTextRemovedVN = arrText.filter(
+      (t) => !re.test(t) && t !== ' ' && t !== '',
+    )
+    const resText = arrTextRemovedVN.join('\n')
     const pathOutFile = path.join(process.cwd(), 'out.txt')
-    fs.writeFileSync(pathOutFile, data.text)
+    fs.writeFileSync(pathOutFile, resText)
     return null
   }
 }
