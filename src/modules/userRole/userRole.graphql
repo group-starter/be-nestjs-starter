@@ -1,0 +1,5 @@
+type UserRole {
+  _id: String!
+  userId: String
+  roleId: String
+}

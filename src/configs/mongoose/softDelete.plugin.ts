@@ -50,7 +50,7 @@ export const softDeleteFilterPlugin = (schema: mongoose.Schema) => {
     this: mongoose.Query<unknown, TDocument>,
     next: HookNextFunction,
   ) {
-    this.where({ isDeleted: false })
+    this.where({ isDeleted: { $ne: true } })
     next()
   }
   typesFindQueryMiddleware.forEach((type) => {
@@ -61,7 +61,7 @@ export const softDeleteFilterPlugin = (schema: mongoose.Schema) => {
     this: mongoose.Aggregate<any>,
     next: HookNextFunction,
   ) {
-    this.pipeline().unshift({ $match: { isDeleted: false } })
+    this.pipeline().unshift({ $match: { isDeleted: { $ne: true } } })
     next()
   }
   schema.pre('aggregate', excludeInDeletedInAggregateMiddleware)

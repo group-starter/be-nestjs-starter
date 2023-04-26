@@ -8,10 +8,15 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export enum Role {
+export enum ENUM_ROLE {
     ADMIN = "ADMIN",
     REVIEWER = "REVIEWER",
     USER = "USER"
+}
+
+export enum ENUM_USER_TYPE {
+    MEMBER = "MEMBER",
+    CLIENT = "CLIENT"
 }
 
 export class ILogin {
@@ -76,6 +81,11 @@ export class Author {
     posts?: Nullable<Nullable<Post>[]>;
 }
 
+export class Permission {
+    _id: string;
+    name?: Nullable<string>;
+}
+
 export class Post {
     _id: string;
     title: string;
@@ -85,6 +95,14 @@ export class Post {
 
 export abstract class ISubscription {
     abstract connectSubscription(test: string): Nullable<SCalar> | Promise<Nullable<SCalar>>;
+}
+
+export class Role {
+    _id: string;
+    name?: Nullable<string>;
+    description?: Nullable<string>;
+    roleId?: Nullable<string>;
+    permissionId?: Nullable<string>;
 }
 
 export class File {
@@ -98,6 +116,13 @@ export class User {
     firstName?: Nullable<string>;
     lastName?: Nullable<string>;
     fullName?: Nullable<string>;
+    type?: Nullable<ENUM_USER_TYPE>;
+}
+
+export class UserRole {
+    _id: string;
+    userId?: Nullable<string>;
+    roleId?: Nullable<string>;
 }
 
 export type SCalar = any;

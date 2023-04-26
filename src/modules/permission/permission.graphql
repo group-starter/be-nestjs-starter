@@ -1,0 +1,4 @@
+type Permission {
+  _id: String!
+  name: String
+}

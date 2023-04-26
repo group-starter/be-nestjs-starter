@@ -1,6 +1,6 @@
 directive @authField(requireRole: Role) on FIELD_DEFINITION
 
-enum Role {
+enum ENUM_ROLE {
   ADMIN
   REVIEWER
   USER
@@ -16,4 +16,9 @@ scalar SCalar
 input BaseInput {
   nodeId: String!
   profileId: String!
+}
+
+enum ENUM_USER_TYPE {
+  MEMBER
+  CLIENT
 }
