@@ -1,4 +1,4 @@
-directive @authField(requireRole: Role) on FIELD_DEFINITION
+directive @authField(requireRole: ENUM_ROLE) on FIELD_DEFINITION
 
 enum ENUM_ROLE {
   ADMIN
