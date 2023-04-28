@@ -23,6 +23,7 @@
   "dependencies": {
     "@apollo/federation": "^0.38.1",
     "@apollo/subgraph": "^2.3.3",
+    "@google-cloud/storage": "^6.9.5",
     "@nestjs/apollo": "^10.2.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",

@@ -8,6 +8,7 @@ import { PostModule } from '@/modules/post/post.module'
 import { PubSubModule } from '@/modules/pubsub/pubsub.module'
 import { AuthModule } from '@/modules/auth/auth.module'
 import { UploadModule } from '@/modules/upload/upload.module'
+import { GGCloudStoreModule } from '@/modules/ggCloudStore/ggCloudStore.module'
 
 import { GraphqlModule } from '@/configs/graphql/graphql.modules'
 import { AppMongooseModule } from '@/configs/mongoose/mongoose.module'
@@ -23,6 +24,7 @@ const imports = [
   AuthorModule,
   PostModule,
   UploadModule,
+  GGCloudStoreModule,
   ConfigModule.forRoot({
     envFilePath: ['.env.development'],
     isGlobal: true,

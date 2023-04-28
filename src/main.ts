@@ -53,5 +53,6 @@ async function bootstrap() {
   await app.listen(PORT)
   Logger.log(`app MS start in ${PORT_MS}`)
   Logger.log(`app start in ${PORT}`)
+  Logger.log(`app swagger in ${PORT}/docs`)
 }
 bootstrap()
